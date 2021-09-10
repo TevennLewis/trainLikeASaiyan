@@ -23,7 +23,7 @@
 
 
 Wire Frames
-
+<img src='https://github.com/TevennLewis/trainLikeASaiyan/blob/main/Screen%20Shot%202021-09-10%20at%2011.45.53%20AM.png?raw=true'/>
 ERD
 
 User Flow
