@@ -1,6 +1,6 @@
 # trainLikeASaiyan
 
-#User Stories
+# User Stories
 
 - User will land on the login page which will ask them to either login with the form provided or create an account via link to a create account page
 - User will first need to create an account by clicking the link which will take them to a create account page asking for name, username, password and level of training (beginner, intermediate, expert)
@@ -22,18 +22,27 @@
 - On each workout, there will be a workout complete button that will remove the workout from their profile page (delete). (Stretch goal: Workouts will be posted to a completed workout page showing dates completed)
 
 
-Wire Frames
-<img src='https://github.com/TevennLewis/trainLikeASaiyan/blob/main/Screen%20Shot%202021-09-10%20at%2011.45.53%20AM.png?raw=true'/>
-ERD
+# Wire Frames
+<img src="https://github.com/TevennLewis/trainLikeASaiyan/blob/main/Screen%20Shot%202021-09-10%20at%2011.45.53%20AM.png?raw=true"/>
+<img src="https://github.com/TevennLewis/trainLikeASaiyan/blob/main/Screen%20Shot%202021-09-10%20at%2011.47.32%20AM.png?raw=true"/>
+<img src="https://github.com/TevennLewis/trainLikeASaiyan/blob/main/Screen%20Shot%202021-09-10%20at%2011.47.50%20AM.png?raw=true"/>
+<img src="https://github.com/TevennLewis/trainLikeASaiyan/blob/main/Screen%20Shot%202021-09-10%20at%2011.48.06%20AM.png?raw=true"/>
+<img src="https://github.com/TevennLewis/trainLikeASaiyan/blob/main/Screen%20Shot%202021-09-10%20at%2011.48.25%20AM.png?raw=true"/>
+<img src="https://github.com/TevennLewis/trainLikeASaiyan/blob/main/Screen%20Shot%202021-09-10%20at%2011.49.01%20AM.png?raw=true"/>
 
-User Flow
+# ERD
+<img src='https://github.com/TevennLewis/trainLikeASaiyan/blob/main/Screen%20Shot%202021-09-10%20at%2011.55.52%20AM.png?raw=true'/>
+
+# User Flow
+<img src='https://github.com/TevennLewis/trainLikeASaiyan/blob/main/Screen%20Shot%202021-09-10%20at%2011.55.28%20AM.png?raw=true'/>
+
 
 # Sprint 1
--Set up models/ schema
--Set up route structure 
--Seed Data 
--Connect Database  
--Index Page 
+- Set up models/ schema
+- Set up route structure 
+- Seed Data 
+- Connect Database  
+- Index Page 
 
 # Sprint 2
 - Create Workout page
