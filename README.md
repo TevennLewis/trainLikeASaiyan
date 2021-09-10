@@ -43,14 +43,18 @@
 - Seed Data 
 - Connect Database  
 - Index Page 
+- Estimated Completion Time: 9/13
 
 # Sprint 2
 - Create Workout page
 - Auth
+- Estimated Completion Time: 9/17
+
 
 
 # Sprint 3
 - Profile page
 - Update profile
 - Delete workouts
+- Estimated Completion Time: 9/20
 
