@@ -1,17 +1,20 @@
 const express = require('express');
 
+const mongoose = require('mongoose');
+
 const workoutRouter = require('./controllers/workout_controller');
 
 const methodOverride = require('method-override');
 
 const app = express();
 
+
 app.set('view engine', 'ejs');
 
 
 //Middleware 
-app.use('/workouts', workoutRouter)
 app.use(express.urlencoded({ extended: true }));
+app.use('/workouts', workoutRouter)
 app.use(methodOverride('_method'));
 
 
