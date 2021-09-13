@@ -10,6 +10,10 @@ const userSchema = new mongoose.Schema(
       type: String, 
       required: true,
     },
+    username: {
+      type: String, 
+      required: true,
+    },
     difficulty: {
       type: String,
       required: true,
@@ -19,7 +23,9 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
     workouts: {
-      type: [Number],
+      type: mongoose.Types.ObjectId,
+      ref: "Workout",
+      
     }
   }
 );
