@@ -3,33 +3,39 @@ const mongoose = require('mongoose');
 const workoutSchema = new mongoose.Schema(
   {
     exerciseOne: {
-      type: Number, 
+      type: mongoose.Types.ObjectId,
+      ref: "Exercise",
       required: true,
     },
     exerciseTwo: {
-      type: Number, 
+      type: mongoose.Types.ObjectId,
+      ref: "Exercise",
       required: true,
     },
     exerciseThree: {
-      type: Number, 
+      type: mongoose.Types.ObjectId,
+      ref: "Exercise",
       required: true,
     },
     exerciseFour: {
-      type: Number, 
+      type: mongoose.Types.ObjectId,
+      ref: "Exercise",
       required: true,
     },
     exerciseFive: {
-      type: Number, 
+      type: mongoose.Types.ObjectId,
+      ref: "Exercise",
       required: true,
     },
     exerciseSix: {
-      type: Number, 
+      type: mongoose.Types.ObjectId,
+      ref: "Exercise",
       required: true,
     },
     user: {
       type: Number,
       required: true,
-    }
+    },
   },
   {
     timestamps: true,

@@ -1,4 +1,4 @@
-const { Exercise } = require('../models/Exercise');
+const { Exercise } = require('../models');
 
 Exercise.deleteMany({}, (error, deletedExercises) => {
   if (error) {
@@ -10,61 +10,73 @@ Exercise.deleteMany({}, (error, deletedExercises) => {
         name: 'Push Up',
         sets: 5,
         reps: 20,
+        isSaved: false
       },
       {
         name: 'Body Weight Squat',
         sets: 5,
-        reps: 25
+        reps: 25,
+        isSaved: false
       },
       {
         name: 'Pull Up',
         sets: 5,
-        reps: 10
+        reps: 10,
+        isSaved: false
       },
       {
         name: 'Plank to Pike',
         sets: 5,
         reps: 8,
+        isSaved: false
       },
       {
         name: 'Supine Hip Thrust',
         sets: 5,
-        reps: 20
+        reps: 20,
+        isSaved: false
       },
       {
         name: 'Standing Broad Jump',
         sets: 5,
-        reps: 8
+        reps: 8,
+        isSaved: false
       },
       {
         name: 'Burpee',
         sets: 5,
-        reps: 12
+        reps: 12,
+        isSaved: false
       },
       {
         name: 'Kettle Bell Swing',
         sets: 5,
-        reps: 15
+        reps: 15,
+        isSaved: false
       },
       {
         name: 'Kettle Bell Clean and Jerk',
         sets: 5,
-        reps: 20
+        reps: 20,
+        isSaved: false
       },
       {
         name: 'TRX Row',
         sets: 5,
-        reps: 15
+        reps: 15,
+        isSaved: false
       },
       {
         name: 'Ab Rollout',
         sets: 5,
-        reps: 10
+        reps: 10,
+        isSaved: false
       },
       {
         name: 'Supermans',
         sets: 5,
-        reps: 12
+        reps: 12,
+        isSaved: false
       }
 
 

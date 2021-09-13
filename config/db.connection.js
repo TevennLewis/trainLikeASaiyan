@@ -2,13 +2,11 @@ const mongoose = require('mongoose');
 
 require('dotenv').config();
 
-const connectionStr = 'mongodb://localhost:27017/train';
+const connectionStr = process.env.MONGODB_URI || 'mongodb://localhost:27017/train';
 
 mongoose.connect(connectionStr, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
 mongoose.connection.on('connected', () => {

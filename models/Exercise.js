@@ -14,6 +14,12 @@ const exerciseSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    isSaved: {
+      type: Boolean,
+      default: false,
+      required: true
+    },
+    
   }
 );
 
