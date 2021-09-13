@@ -39,4 +39,45 @@ router.post("/register", async function (req, res) {
   }
 });
 
+router.post("/login", async function (req, res) {
+  try {
+    // check if the user exists
+    const foundUser = await User.findOne({ username: req.body.username });
+    console.log(foundUser);
+    // if not
+    // redirect to register
+    if (!foundUser) return res.redirect("/register");
+
+    // if the user exists
+    // validate the user if passwords match -> login
+    // .compare(body password, hashed password) => return true or false
+    const match = await bcrypt.compare(req.body.password, foundUser.password);
+
+    // if not match send error
+    if (!match) return res.send("password invalid");
+
+    // if match create the session and redirect to home\
+    // here we have created the key card
+    req.session.currentUser = {
+      id: foundUser._id,
+      username: foundUser.username,
+    };
+
+    return res.redirect("/home");
+  } catch (err) {
+    console.log(err);
+    res.send(err);
+  }
+});
+
+router.get("/logout", async function (req, res) {
+  try {
+    await req.session.destroy();
+    return res.redirect("/login");
+  } catch (error) {
+    console.log(error);
+    return res.send(error);
+  }
+});
+
 module.exports = router;
