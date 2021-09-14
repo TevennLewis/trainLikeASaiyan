@@ -19,6 +19,10 @@ const exerciseSchema = new mongoose.Schema(
       default: false,
       required: true
     },
+    workout: {
+      type: mongoose.Types.ObjectId,
+      ref: 'Workout'
+    }
     
   }
 );

@@ -40,11 +40,26 @@ router.post('/new', async (req, res, next) => {
         const workout = {
             ...req.body,
         };
-        console.log(`LOOOOK AT MEEEE ${workout} LOOOOK AT MEEEEE`)
-        const createdWorkout = await Workout.create(workout);
-
-        return res.redirect(`/${req.query.redirect}`);
-
+        const exercises = workout.exercise;
+        const postWorkout = {
+            exerciseOne: exercises[0],
+            exerciseTwo: exercises[1],
+            exerciseThree: exercises[2],
+            exerciseFour: exercises[3],
+            exerciseFive: exercises[4],
+            exerciseSix: exercises[5],
+            user: req.session.currentUser.id
+        }
+        console.log(`LOOOOK AT MEEEE LOOOOK AT MEEEEE`)
+        // console.log(Object.keys(workout));
+        // console.log(JSON.stringify(workout.exercise));
+        console.log(req.session.currentUser)
+        const createdWorkout = await Workout.create(postWorkout);
+        console.log(createdWorkout)
+        return res.redirect('/home');
+        // console.log(req.body)
+        // console.log(req.user)
+        // res.send('hello');
     } catch (error) {
         console.log(error);
         req.error = error;
