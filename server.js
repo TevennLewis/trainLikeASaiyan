@@ -34,6 +34,7 @@ app.use(methodOverride('_method'));
 
 
 app.use("/", controllers.auth);
+app.use("/user", controllers.profile);
 //Routes
 app.get('/home', function(req, res) {
   const stories = [{

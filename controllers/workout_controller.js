@@ -1,8 +1,8 @@
 const express = require('express');
 const { db } = require('../models/Exercise');
 const router = express.Router();
-Exercise = require('../models/Exercise');
-Workout = require('../models/Workout');
+const Exercise = require('../models/Exercise');
+const Workout = require('../models/Workout');
 
 // router.get('/new', (req, res) => {
 //   db.Exercise.find({}, (error, allExercises) => {
