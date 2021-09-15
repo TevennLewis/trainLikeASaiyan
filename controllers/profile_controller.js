@@ -75,12 +75,13 @@ router.get('/:id/workout/:wid', async (req, res, next) => {
         const foundWorkout = await Workout.findById(req.params.wid)
         .populate('exerciseOne exerciseTwo exerciseThree exerciseFour exerciseFive exerciseSix');
         const foundUser = await User.findById(req.params.id);
-        
+        const foundExercises = await Exercise.find({});
         console.log(foundWorkout, foundUser);
 
         const context = {
             workout: foundWorkout,
             user: foundUser,
+            exercises: foundExercises,
         }
     return res.render("edit", context);
 
@@ -91,9 +92,10 @@ router.get('/:id/workout/:wid', async (req, res, next) => {
     }
 })
 
-router.put('/:id', async (req, res, next) => {
+router.put('/:id/workout/:wid', async (req, res, next) => {
     try {
-        const updatedWorkout = await Workout.findByIdAndUpdate(req.params.id,
+        
+        const updatedWorkout = await Workout.findByIdAndUpdate(req.params.wid,
             { $set: req.body },
             { new: true });
 
@@ -103,7 +105,7 @@ router.put('/:id', async (req, res, next) => {
             workout: updatedWorkout,
             user: foundUser,
         };
-
+        console.log("REEEAAADDDD MEEEEEEE", updatedWorkout.exerciseOne);
         return res.redirect(`/user/${foundUser._id}`);
 
     } catch (error) {

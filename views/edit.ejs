@@ -6,10 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-  <script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <title>Train Like a Saiyan</title>
 </head>
 
@@ -17,67 +15,59 @@
   <div class="box">
     <h1>Edit Workout</h1>
   </div>
-  <h1>All Available Exercises</h1>
-  
+  <h1>Your Workout</h1>
+
   <div class="card">
-    <form action="user/<%= user._id %>?_method=PUT" method="POST">
+
+    <h1>
+      <%= workout.exerciseOne.name%>
+    </h1>
+
+    <h1>
+      <%= workout.exerciseTwo.name%>
+    </h1>
+
+    <h1>
+      <%= workout.exerciseThree.name%>
+    </h1>
+
+    <h1>
+      <%= workout.exerciseFour.name%>
+    </h1>
+
+    <h1>
+      <%= workout.exerciseFive.name%>
+    </h1>
+
+    <h1>
+      <%= workout.exerciseSix.name%>
+    </h1>
+
+
+
+
+
+
+  </div>
+  </form>
+  <div class="card">
+    <form action="?_method=PUT" method="POST">
       <div class="field">
-        <label class="label">Choose Exercise</label>
-    
-      
-      <input
-      name="exercise"
-      class="checkbox"
-      type="checkbox"
-      value="<%= workout.exerciseOne.id %>"
-    />
-    <label for="exercises"><%= workout.exerciseOne.name%></label>
-      <input
-      name="exercise"
-      class="checkbox"
-      type="checkbox"
-      value="<%= workout.exerciseTwo.id %>"
-    />
-    <label for="exercises"><%= workout.exerciseTwo.name%></label>
-      <input
-      name="exercise"
-      class="checkbox"
-      type="checkbox"
-      value="<%= workout.exerciseThree.id %>"
-    />
-    <label for="exercises"><%= workout.exerciseThree.name%></label>
-      <input
-      name="exercise"
-      class="checkbox"
-      type="checkbox"
-      value="<%= workout.exerciseFour.id %>"
-    />
-    <label for="exercises"><%= workout.exerciseFour.name%></label>
-      <input
-      name="exercise"
-      class="checkbox"
-      type="checkbox"
-      value="<%= workout.exerciseFive.id %>"
-    />
-    <label for="exercises"><%= workout.exerciseFive.name%></label>
-      <input
-      name="exercise"
-      class="checkbox"
-      type="checkbox"
-      value="<%= workout.exerciseSix.id %>"
-    />
-    <label for="exercises"><%= workout.exerciseSix.name%></label>
+        <label class="label">Choose Exercise To Update Workout</label>
+        <% exercises.forEach(allExercises=> { %>
 
-    
-          
-      
-  
-    <button type="submit">Save Workout</button>
-  </div>
-</form>
-    
-  </div>
+          <input name="exercise" class="checkbox" type="checkbox" value="<%= allExercises._id %>" />
+          <label for="exercises">
+            <%= allExercises.name %>
+          </label>
 
+
+
+          <% }) %>
+      </div>
+      <button type="submit">Save Workout</button>
+  </div>
+  </form>
 </body>
 
 </html>

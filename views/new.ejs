@@ -14,34 +14,36 @@
 </head>
 
 <body>
-  <div class="box">
-    <h1>New Workouts</h1>
-  </div>
+<section class="hero is-fullheight-with-navbar is-link">
+  <div class="hero-body is-flex-direction-column">
+    <h1 class="label">New Workouts</h1>
+  
   <h1>All Available Exercises</h1>
   
-  <div class="card">
+  <div class="card p-3">
     <form method="POST">
       <div class="field">
         <label class="label">Choose Exercise</label>
-    <% exercises.forEach(allExercises => { %> 
-      
-      <input
-      name="exercise"
-      class="checkbox"
-      type="checkbox"
-      value="<%= allExercises._id %>"
-    />
-    <label for="exercises"><%= allExercises.name %> </label>
-    
+        <% exercises.forEach(allExercises => { %> 
+          
+          <input
+          name="exercise"
+          class="checkbox"
+          type="checkbox"
+          value="<%= allExercises._id %>"
+          /> 
+          <label for="exercises"><%= allExercises.name %> </label>
+          <br>
           
       
     <% }) %>
-    <button type="submit">Save Workout</button>
+    <button class="button is-success" type="submit">Save Workout</button>
   </div>
 </form>
     
   </div>
-
+</div>
+</section>
 </body>
 
 </html>
