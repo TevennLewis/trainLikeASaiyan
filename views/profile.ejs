@@ -17,25 +17,43 @@
       <%= user.firstName %>
     </h1>
     <% workouts.forEach(workout=> { %>
-      <div class="workoutCard">
+      <div class="box" id="user_workout">
         <h1>
           <%= workout.exerciseOne.name %>
         </h1>
+        <h1>Sets: <%= workout.exerciseOne.sets %> Reps: <%= workout.exerciseOne.reps %></h1>
+
+        
         <h1>
           <%= workout.exerciseTwo.name %>
         </h1>
+        <h1>Sets: <%= workout.exerciseTwo.sets %> Reps: <%= workout.exerciseTwo.reps %></h1>
+
+        
         <h1>
           <%= workout.exerciseThree.name %>
         </h1>
+        <h1>Sets: <%= workout.exerciseThree.sets %> Reps: <%= workout.exerciseThree.reps %></h1>
+
+        
         <h1>
           <%= workout.exerciseFour.name %>
         </h1>
+        <h1>Sets: <%= workout.exerciseFour.sets %> Reps: <%= workout.exerciseFour.reps %></h1>
+
+        
         <h1>
           <%= workout.exerciseFive.name %>
         </h1>
+        <h1>Sets: <%= workout.exerciseFive.sets %> Reps: <%= workout.exerciseFive.reps %></h1>
+
+        
         <h1>
           <%= workout.exerciseSix.name %>
         </h1>
+        <h1>Sets: <%= workout.exerciseSix.sets %> Reps: <%= workout.exerciseSix.reps %></h1>
+
+        
       </div>
       <% }) %>
   </div>

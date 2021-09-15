@@ -5,7 +5,6 @@ require('./config/db.connection');
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 
-const workoutRouter = require('./controllers/workout_controller');
 
 const methodOverride = require('method-override');
 
@@ -13,6 +12,8 @@ const app = express();
 const controllers = require('./controllers')
 
 app.set('view engine', 'ejs');
+
+app.use(express.static(__dirname + "/public"));
 
 app.use(
   session({
@@ -29,18 +30,16 @@ app.use(
 
 //Middleware 
 app.use(express.urlencoded({ extended: true }));
-app.use('/workouts', workoutRouter)
 app.use(methodOverride('_method'));
-
-
 app.use("/", controllers.auth);
+app.use('/workouts', controllers.workout);
 app.use("/user", controllers.profile);
 //Routes
 app.get('/home', function(req, res) {
   const stories = [{
     name: 'Jack',
     description: 'Started at beginner and now I live for expert!',
-    photo: 'https://i2.wp.com/christianforemost.com/wp-content/uploads/2021/04/MAR-20-min.png?resize=1024%2C576&ssl=1'
+    photo: 'https://cdn.prod.openfit.com/uploads/2018/12/15172036/before-after-pictures.jpg'
   },
   {
     name: 'Jill',

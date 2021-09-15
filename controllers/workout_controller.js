@@ -18,6 +18,7 @@ const Workout = require('../models/Workout');
 //   })
 // });
 
+// new workout GET form route
 router.get('/new', async (req, res) => {
     try {
         const allExercises = await Exercise.find({});
@@ -35,6 +36,7 @@ router.get('/new', async (req, res) => {
     };
 });
 
+// create workout POST route
 router.post('/new', async (req, res, next) => {
     try {
         const workout = {
@@ -51,12 +53,14 @@ router.post('/new', async (req, res, next) => {
             user: req.session.currentUser.id
         }
         console.log(`LOOOOK AT MEEEE LOOOOK AT MEEEEE`)
+        console.log('User', postWorkout.user);
+        
         // console.log(Object.keys(workout));
         // console.log(JSON.stringify(workout.exercise));
-        console.log(req.session.currentUser)
+        console.log("req.session.currentUser", req.session.currentUser)
         const createdWorkout = await Workout.create(postWorkout);
-        console.log(createdWorkout)
-        return res.redirect('/home');
+        console.log("createdWorkout", createdWorkout)
+        return res.redirect(`/user/${postWorkout.user}`);
         // console.log(req.body)
         // console.log(req.user)
         // res.send('hello');
