@@ -20,22 +20,58 @@
   <h1>All Available Exercises</h1>
   
   <div class="card">
-    <form action="user/<%=  %> ?_method=PUT" method="POST">
+    <form action="user/<%= user._id %>?_method=PUT" method="POST">
       <div class="field">
         <label class="label">Choose Exercise</label>
-    <% exercises.forEach(allExercises => { %> 
+    
       
       <input
       name="exercise"
       class="checkbox"
       type="checkbox"
-      value="<%= allExercises._id %>"
+      value="<%= workout.exerciseOne.id %>"
     />
-    <label for="exercises"><%= allExercises.name %> </label>
+    <label for="exercises"><%= workout.exerciseOne.name%></label>
+      <input
+      name="exercise"
+      class="checkbox"
+      type="checkbox"
+      value="<%= workout.exerciseTwo.id %>"
+    />
+    <label for="exercises"><%= workout.exerciseTwo.name%></label>
+      <input
+      name="exercise"
+      class="checkbox"
+      type="checkbox"
+      value="<%= workout.exerciseThree.id %>"
+    />
+    <label for="exercises"><%= workout.exerciseThree.name%></label>
+      <input
+      name="exercise"
+      class="checkbox"
+      type="checkbox"
+      value="<%= workout.exerciseFour.id %>"
+    />
+    <label for="exercises"><%= workout.exerciseFour.name%></label>
+      <input
+      name="exercise"
+      class="checkbox"
+      type="checkbox"
+      value="<%= workout.exerciseFive.id %>"
+    />
+    <label for="exercises"><%= workout.exerciseFive.name%></label>
+      <input
+      name="exercise"
+      class="checkbox"
+      type="checkbox"
+      value="<%= workout.exerciseSix.id %>"
+    />
+    <label for="exercises"><%= workout.exerciseSix.name%></label>
+
     
           
       
-    <% }) %>
+  
     <button type="submit">Save Workout</button>
   </div>
 </form>
