@@ -12,16 +12,18 @@
   <nav>
     <button><a href="/logout">Logout</a></button>
   </nav>
-  <div class="box">
+  <section class="hero is-fullheight-with-navbar is-link">
+    <div class="hero-body is-flex-direction-column">
     <div class="button"><a href="/workouts/new">New Workout</a></div>
     <h1>Success Stories</h1>
     <% stories.forEach(story => { %> 
       <div class="card">
         <%= story.name %> 
         <%= story.description %> 
-        <img src=<%= story.photo %> />
+        <img class="image is-64x64" src=<%= story.photo %> />
       </div>
     <% }) %>
   </div>
+  </section>
 </body>
 </html>

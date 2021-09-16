@@ -93,10 +93,24 @@ router.get('/:id/workout/:wid', async (req, res, next) => {
 })
 
 router.put('/:id/workout/:wid', async (req, res, next) => {
+    
     try {
-        
+        const workout = {
+            ...req.body,
+        };
+        const exercises = workout.exercise;
+        const postWorkout = {
+            exerciseOne: exercises[0],
+            exerciseTwo: exercises[1],
+            exerciseThree: exercises[2],
+            exerciseFour: exercises[3],
+            exerciseFive: exercises[4],
+            exerciseSix: exercises[5],
+            user: req.session.currentUser.id
+        }
+        console.log(req.body, "+++++++++++++++++")
         const updatedWorkout = await Workout.findByIdAndUpdate(req.params.wid,
-            { $set: req.body },
+            { $set: postWorkout },
             { new: true });
 
         const foundUser = await User.findById(req.params.id);
