@@ -129,4 +129,21 @@ router.put('/:id/workout/:wid', async (req, res, next) => {
     };
 });
 
+router.delete('/:id/workout/:wid', async (req, res, next) => {
+    try {
+        const deletedWorkout = await Workout.findByIdAndDelete(req.params.wid);
+        const foundUser = await User.findById(req.params.id);
+
+        console.log("THIS IS THE DELETED WORKOUT", deletedWorkout);
+
+        return res.redirect(`/user/${foundUser._id}`);
+        
+        
+    } catch (error) {
+        console.log(error);
+        req.error = error;
+        return next();
+    };
+});
+
 module.exports = router;

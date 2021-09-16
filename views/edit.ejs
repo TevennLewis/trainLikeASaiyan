@@ -18,7 +18,7 @@
   <h1>Your Workout</h1>
 
   <div class="card">
-
+    <form action="/user/<%= user._id %>/workout/<%= workout._id %>?_method=DELETE" method="POST">
     <h1>
       <%= workout.exerciseOne.name%>
     </h1>
@@ -42,6 +42,9 @@
     <h1>
       <%= workout.exerciseSix.name%>
     </h1>
+    
+      <button type="submit">Delete</button>
+    </form>
 
 
 
@@ -61,9 +64,9 @@
             <%= allExercises.name %>
           </label>
 
-
-
+          
           <% }) %>
+          
       </div>
       <button type="submit">Save Workout</button>
   </div>
