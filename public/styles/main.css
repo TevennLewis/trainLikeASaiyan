@@ -1,3 +1,32 @@
 h1 {
-  color: orange;
+  color: #F85B1A;
+}
+#story-container{
+  display: flex;
+  flex-direction: row;
+}
+body {
+  background-color: #072083;
+}
+img {
+  height: 200px;
+  width: 230px;
+  border-radius: 5px;
+  margin: 5px;
+}
+nav {
+  background-color: #F85B1A;
+}
+.card {
+  text-align: center;
+  background-color: #072083
+}
+
+.button {
+  margin: 10px;
+  padding: 10px;
+}
+
+h4 {
+  color: #F85B1A;
 }

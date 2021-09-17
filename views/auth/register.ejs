@@ -1,63 +1,75 @@
-<h1 class="title">Register</h1>
-        <form action="/register" method="POST" class="box">
-          <div class="field">
-            <label class="label">First Name</label>
-            <div class="control">
-              <input
-                name="firstName"
-                class="input"
-                type="text"
-                placeholder="Joe"
-              />
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs', { page: 'Register'}) %>
+<body>
+  <%- include('../partials/nav.ejs') %>
+  <h1 class="title">Register</h1>
+          <form action="/register" method="POST" class="box">
+            <div class="field">
+              <label class="label">First Name</label>
+              <div class="control">
+                <input
+                  name="firstName"
+                  class="input"
+                  type="text"
+                  placeholder="Joe"
+                />
+              </div>
             </div>
-          </div>
-          <div class="field">
-            <label class="label">Last Name</label>
-            <div class="control">
-              <input
-                name="lastName"
-                class="input"
-                type="text"
-                placeholder="Green"
-              />
+            <div class="field">
+              <label class="label">Last Name</label>
+              <div class="control">
+                <input
+                  name="lastName"
+                  class="input"
+                  type="text"
+                  placeholder="Green"
+                />
+              </div>
             </div>
-          </div>
-          <div class="field">
-            <label class="label">Username</label>
-            <div class="control">
-              <input
-                name="username"
-                class="input"
-                type="text"
-                placeholder="Trainer123"
-              />
+            <div class="field">
+              <label class="label">Username</label>
+              <div class="control">
+                <input
+                  name="username"
+                  class="input"
+                  type="text"
+                  placeholder="Trainer123"
+                />
+              </div>
             </div>
-          </div>
-          <div class="field">
-            <label class="label">Difficulty</label>
-            <div class="control">
-              <select id="difficulty" name="difficulty">
-                <option value="beginner">Beginner</option>
-                <option value="intermediate">Intermediate</option>
-                <option value="expert">Expert</option>
-              
-              </select>
+            <div class="field">
+              <label class="label">Difficulty</label>
+              <div class="control">
+                <select id="difficulty" name="difficulty">
+                  <option value="beginner">Beginner</option>
+                  <option value="intermediate">Intermediate</option>
+                  <option value="expert">Expert</option>
+                
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="field">
-            <label class="label">Password</label>
-            <div class="control">
-              <input
-                name="password"
-                class="input"
-                type="password"
-                placeholder="******"
-              />
+            <div class="field">
+              <label class="label">Password</label>
+              <div class="control">
+                <input
+                  name="password"
+                  class="input"
+                  type="password"
+                  placeholder="******"
+                />
+              </div>
             </div>
-          </div>
-          <div class="field">
-            <div class="control">
-              <button class="button is-link is-fullwidth">Submit</button>
+            <div class="field">
+              <div class="control">
+                <button class="button is-link is-fullwidth">Submit</button>
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
+  
+</body>
+</html>
+
+
+
+

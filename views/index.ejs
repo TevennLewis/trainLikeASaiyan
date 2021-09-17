@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-  <link rel="stylesheet" href="./styles/main.css" />
-  <title>Train Like a Saiyan</title>
-</head>
-<body>
-  <nav>
-    <button><a href="/logout">Logout</a></button>
-  </nav>
+
+  <%- include('partials/head.ejs', { page: 'Home'}) %>
+  <body>
+    <%- include('partials/logged_in_nav.ejs') %>
+  
+  <div class="card">
+    <img src="https://pbs.twimg.com/media/DdCPpUOVMAEnbij.jpg" alt="">
+    <h4 class="index_opener">Ready to take your training to super saiyan? Head over to the create workout link and lets create a new workout together!</h4>
+  </div>
   <section class="hero is-fullheight-with-navbar is-link">
     <div class="hero-body is-flex-direction-column">
-    <div class="button"><a href="/workouts/new">New Workout</a></div>
+    
+
     <h1>Success Stories</h1>
+    <div id="story-container">
     <% stories.forEach(story => { %> 
       <div class="card">
-        <%= story.name %> 
-        <%= story.description %> 
-        <img class="image is-64x64" src=<%= story.photo %> />
+        <div class="box"><%= story.name %></div> 
+        <div class="box"><%= story.description %></div>
+        <img class="image " src=<%= story.photo %> />
       </div>
     <% }) %>
+  </div>
   </div>
   </section>
 </body>

@@ -2,9 +2,6 @@ const express = require('express');
 const router = express.Router();
 const { User, Workout, Exercise } = require("../models");
 
-router.get('/', function (req, res) {
-    res.send('hello');
-})
 router.get('/:id', async (req, res, next) => {
     try {
         const foundUser = await User.findById(req.params.id);

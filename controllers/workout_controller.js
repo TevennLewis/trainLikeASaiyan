@@ -39,10 +39,27 @@ router.get('/new', async (req, res) => {
 // create workout POST route
 router.post('/new', async (req, res, next) => {
     try {
-        const workout = {
-            ...req.body,
-        };
-        const exercises = workout.exercise;
+        if( req.body.exercise.length < 6 || typeof(req.body.exercise) === "string"){
+            const allExercises = await Exercise.find({});
+
+            const context = {
+                error: "Each workout needs 6 exercises",
+                exercises: allExercises,
+            };
+            return res.render('new', context)
+        }
+
+        if(req.body.exercise.length > 6 ){
+            const allExercises = await Exercise.find({});
+
+            const context = {
+                error: "Each workout has a maximum of 6 exercises",
+                exercises: allExercises,
+            };
+            return res.render('new', context)
+        }
+        
+        const exercises = req.body.exercise;
         const postWorkout = {
             exerciseOne: exercises[0],
             exerciseTwo: exercises[1],

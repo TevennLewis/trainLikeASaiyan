@@ -31,11 +31,18 @@ app.use(
 //Middleware 
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
+
+app.use((req,res, next) => {
+  res.locals.user = req.session.currentUser;
+  return next();
+})
+//Routes
 app.use("/", controllers.auth);
 app.use('/workouts', controllers.workout);
 app.use("/user", controllers.profile);
-//Routes
+
 app.get('/home', function(req, res) {
+  
   const stories = [{
     name: 'Jack',
     description: 'Started at beginner and now I live for expert!',
@@ -50,8 +57,11 @@ app.get('/home', function(req, res) {
     name: 'Sam',
     description: 'Training is kicking my tail but I feel 10 years younger!', 
     photo: 'https://qph.fs.quoracdn.net/main-qimg-4e2e70eadf4bd675d939864c4640bb79'
-  }
+  },
+  
 ]
+
+  
   res.render('index', {stories: stories});
 });
 
