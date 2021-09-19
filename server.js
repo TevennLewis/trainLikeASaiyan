@@ -2,10 +2,11 @@ const express = require('express');
 
 require('./config/db.connection');
 
-const session = require("express-session");
 const MongoStore = require("connect-mongo");
 require('dotenv').config();
 
+
+const session = require("express-session");
 
 const methodOverride = require('method-override');
 
@@ -19,7 +20,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(
   session({
     store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
-    secret: process.env.secret,
+    secret: 'super secret',
     resave: false,
     saveUninitialized: false,
     cookie: {
