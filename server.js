@@ -4,6 +4,7 @@ require('./config/db.connection');
 
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
+require('dotenv').config();
 
 
 const methodOverride = require('method-override');
@@ -17,8 +18,8 @@ app.use(express.static(__dirname + "/public"));
 
 app.use(
   session({
-    store: MongoStore.create({ mongoUrl: "mongodb://localhost:27017/train" }),
-    secret: "super secret",
+    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
+    secret: process.env.secret,
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -66,6 +67,6 @@ app.get('/home', function(req, res) {
 });
 
 
-app.listen(4000, function () {
+app.listen(process.env.PORT || 4000, function () {
   console.log('Listening on port 4000')
 });
