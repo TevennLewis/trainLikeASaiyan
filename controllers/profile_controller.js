@@ -92,10 +92,39 @@ router.get('/:id/workout/:wid', async (req, res, next) => {
 router.put('/:id/workout/:wid', async (req, res, next) => {
     
     try {
-        const workout = {
-            ...req.body,
-        };
-        const exercises = workout.exercise;
+        if( req.body.exercise.length < 6 || typeof(req.body.exercise) === "string"){
+            const allExercises = await Exercise.find({});
+            const updatedWorkout = await Workout.findById(req.params.wid)
+    
+            const foundUser = await User.findById(req.params.id);
+                console.log(foundUser);
+            const context = {
+                error: "Each workout needs 6 exercises",
+                exercises: allExercises,
+                workout: updatedWorkout,
+                user: foundUser,
+                
+            };
+            return res.render('edit', context)
+        }
+
+        if(req.body.exercise.length > 6 ){
+            const allExercises = await Exercise.find({});
+            const updatedWorkout = await Workout.findById(req.params.wid)
+    
+            const foundUser = await User.findById(req.params.id);
+                console.log(foundUser);
+            const context = {
+                error: "Each workout has a maximum of 6 exercises",
+                exercises: allExercises,
+                workout: updatedWorkout,
+                user: foundUser,
+                
+            };
+            return res.render('edit', context)
+        }
+       
+        const exercises = req.body.exercise;
         const postWorkout = {
             exerciseOne: exercises[0],
             exerciseTwo: exercises[1],
@@ -105,7 +134,6 @@ router.put('/:id/workout/:wid', async (req, res, next) => {
             exerciseSix: exercises[5],
             user: req.session.currentUser.id
         }
-        console.log(req.body, "+++++++++++++++++")
         const updatedWorkout = await Workout.findByIdAndUpdate(req.params.wid,
             { $set: postWorkout },
             { new: true });
@@ -116,7 +144,6 @@ router.put('/:id/workout/:wid', async (req, res, next) => {
             workout: updatedWorkout,
             user: foundUser,
         };
-        console.log("REEEAAADDDD MEEEEEEE", updatedWorkout.exerciseOne);
         return res.redirect(`/user/${foundUser._id}`);
 
     } catch (error) {

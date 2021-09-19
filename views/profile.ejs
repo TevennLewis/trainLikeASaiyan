@@ -4,10 +4,13 @@
   <%- include('partials/head.ejs', { page: 'Home'}) %>
   <body>
     <%- include('partials/logged_in_nav.ejs') %>
-  <div class="box">
+    <section class="hero is-fullheight-with-navbar is-link">
+      <div class="hero-body is-flex-direction-column">
+    <div class="box">
     <h1>
       <%= user.firstName %>
     </h1>
+    </div>
     <% workouts.forEach(workout=> { %>
       <div class="box" id="user_workout">
         <h1>
@@ -44,11 +47,16 @@
           <%= workout.exerciseSix.name %>
         </h1>
         <h1>Sets: <%= workout.exerciseSix.sets %> Reps: <%= workout.exerciseSix.reps %></h1>
-        <a href="<%= user._id %>/workout/<%= workout._id %>">Update Link</a>
+
+        <h1>Create Date: <%= workout.createdAt.toLocaleDateString() %></h1> </h1>
+        <h1>Updated Date: <%= workout.updatedAt.toLocaleDateString() %> </h1>
+
+        <button class="button is-success"><a href="<%= user._id %>/workout/<%= workout._id %>">Update Workout</a></button>
         
       </div>
       <% }) %>
   </div>
+  </section>
 </body>
 
 </html>

@@ -1,68 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <%- include('partials/head.ejs', { page: 'Home'}) %>
+<%- include('partials/head.ejs', { page: 'Home' }) %>
+
   <body>
     <%- include('partials/logged_in_nav.ejs') %>
-  <div class="box">
-    <h1>Edit Workout</h1>
-  </div>
-  <h1>Your Workout</h1>
+      <section class="hero is-fullheight-with-navbar is-link">
+        <div class="hero-body is-flex-direction-column">
+          <div class="box">
+            <h1>Edit Workout</h1>
+          </div>
 
-  <div class="card">
-    <form action="/user/<%= user._id %>/workout/<%= workout._id %>?_method=DELETE" method="POST">
-    <h1>
-      <%= workout.exerciseOne.name%>
-    </h1>
-
-    <h1>
-      <%= workout.exerciseTwo.name%>
-    </h1>
-
-    <h1>
-      <%= workout.exerciseThree.name%>
-    </h1>
-
-    <h1>
-      <%= workout.exerciseFour.name%>
-    </h1>
-
-    <h1>
-      <%= workout.exerciseFive.name%>
-    </h1>
-
-    <h1>
-      <%= workout.exerciseSix.name%>
-    </h1>
-    
-      <button type="submit">Delete</button>
-    </form>
-
-
-
-
-
-
-  </div>
-  </form>
-  <div class="card">
-    <form action="/user/<%=user.id%>/workout/<%=workout.id%>/?_method=PUT" method="POST">
-      <div class="field">
-        <label class="label">Choose Exercise To Update Workout</label>
-        <% exercises.forEach(allExercises=> { %>
-
-          <input name="exercise" class="checkbox" type="checkbox" value="<%= allExercises._id %>" />
-          <label for="exercises">
-            <%= allExercises.name %>
-          </label>
-
+          <h1>Your Workout</h1>
           
-          <% }) %>
-          
-      </div>
-      <button type="submit">Save Workout</button>
-  </div>
-  </form>
-</body>
+              <div class="card">
+                <form action="/user/<%= user._id %>/workout/<%= workout._id %>?_method=DELETE" method="POST">
+                  <h1>
+                    <%= workout.exerciseOne.name%>
+                  </h1>
+
+                  <h1>
+                    <%= workout.exerciseTwo.name%>
+                  </h1>
+
+                  <h1>
+                    <%= workout.exerciseThree.name%>
+                  </h1>
+
+                  <h1>
+                    <%= workout.exerciseFour.name%>
+                  </h1>
+
+                  <h1>
+                    <%= workout.exerciseFive.name%>
+                  </h1>
+
+                  <h1>
+                    <%= workout.exerciseSix.name%>
+                  </h1>
+
+                  <button type="submit">Delete</button>
+                </form>
+
+
+
+                <% if (typeof error !=="undefined" ) { %>
+                  <p>
+                    <%= error %>
+                  </p>
+                  <% } %>
+      
+
+
+              </div>
+
+              <div class="card">
+                <form action="/user/<%=user.id%>/workout/<%=workout.id%>/?_method=PUT" method="POST">
+                  <div class="field">
+                    
+                    <label class="label">Choose Exercise To Update Workout</label>
+                    
+                    <% exercises.forEach(allExercises=> { %>
+
+                      <input name="exercise" class="checkbox" type="checkbox" value="<%= allExercises._id %>" />
+                      <label for="exercises">
+                        <%= allExercises.name %>
+                      </label>
+                      <br>
+
+                      <% }) %>
+
+                  </div>
+                  <button type="submit">Save Workout</button>
+              </div>
+              </form>
+        </div>
+      </section>
+  </body>
 
 </html>
