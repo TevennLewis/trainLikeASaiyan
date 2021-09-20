@@ -37,14 +37,13 @@ app.use("/user", controllers.profile);
 
 
 
-//Middleware 
 
 app.use((req,res, next) => {
   res.locals.user = req.session.currentUser;
   return next();
 })
 
-app.get('/home', function(req, res) {
+app.get('/', function(req, res) {
   
   const stories = [{
     name: 'Jack',
