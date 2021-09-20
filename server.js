@@ -43,7 +43,7 @@ app.use((req,res, next) => {
   return next();
 })
 
-app.get('/', function(req, res) {
+app.get('/home', function(req, res) {
   
   const stories = [{
     name: 'Jack',
@@ -66,6 +66,13 @@ app.get('/', function(req, res) {
   
   res.render('index', {stories: stories});
 });
+
+app.get('/', function (req, res) {
+  console.log(req.session.currentUser)
+  if(!req.session.currentUser){
+    res.redirect('/login')
+  }
+})
 
 
 app.listen(process.env.PORT || 4000, function () {
