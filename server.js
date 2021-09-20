@@ -1,22 +1,18 @@
 const express = require('express');
-
-require('./config/db.connection');
-
+const methodOverride = require('method-override');
+const controllers = require('./controllers')
+const session = require("express-session");
 const MongoStore = require("connect-mongo");
 require('dotenv').config();
-
-
-const session = require("express-session");
-
-const methodOverride = require('method-override');
-
 const app = express();
-const controllers = require('./controllers')
+require('./config/db.connection');
 
+//middleware
+app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
-
 app.use(express.static(__dirname + "/public"));
 
+//session controller
 app.use(
   session({
     store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
@@ -28,20 +24,25 @@ app.use(
     },
   })
 );
+app.use(methodOverride('_method'));
+
+//Routes
+app.use("/", controllers.auth);
+app.use('/workouts', controllers.workout);
+app.use("/user", controllers.profile);
+
+
+
+
+
 
 
 //Middleware 
-app.use(express.urlencoded({ extended: true }));
-app.use(methodOverride('_method'));
 
 app.use((req,res, next) => {
   res.locals.user = req.session.currentUser;
   return next();
 })
-//Routes
-app.use("/", controllers.auth);
-app.use('/workouts', controllers.workout);
-app.use("/user", controllers.profile);
 
 app.get('/home', function(req, res) {
   
