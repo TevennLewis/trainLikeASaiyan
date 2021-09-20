@@ -4,7 +4,10 @@ require('dotenv').config();
 
 const connectionStr = process.env.MONGODB_URI || 'mongodb://localhost:27017/train';
 
-mongoose.connect(connectionStr);
+mongoose.connect(connectionStr, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 mongoose.connection.on('connected', () => {
     console.log('MongoDB connected 🤘🤘🤘 !');
