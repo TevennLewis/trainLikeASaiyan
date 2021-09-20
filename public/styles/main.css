@@ -30,3 +30,13 @@ nav {
 h4 {
   color: #F85B1A;
 }
+
+.card {
+  padding: 10px;
+  margin: 10px;
+}
+
+.form {
+  padding: 10px;
+  margin: 10px;
+}
